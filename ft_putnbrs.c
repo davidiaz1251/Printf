@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:26:02 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/10/10 15:33:18 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:41:47 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	putnbr_unsig(unsigned long long nbr)
 {
-	int	base_len;
-	int	count;
-	char *base;
+	int		base_len;
+	int		count;
+	char	*base;
 
 	base = "0123456789abcdef";
 	base_len = ft_strlen(base);
@@ -34,7 +34,7 @@ int	putnbr_unsig(unsigned long long nbr)
 	return (count);
 }
 
-int	putnbr_int(unsigned int nbr, const char *base)
+int	nbr_int(unsigned int nbr, const char *base)
 {
 	int	base_len;
 	int	count;
@@ -48,8 +48,8 @@ int	putnbr_int(unsigned int nbr, const char *base)
 	}
 	else
 	{
-		count += putnbr_int(nbr / base_len, base);
-		count += putnbr_int(nbr % base_len, base);
+		count += nbr_int(nbr / base_len, base);
+		count += nbr_int(nbr % base_len, base);
 	}
 	return (count);
 }
