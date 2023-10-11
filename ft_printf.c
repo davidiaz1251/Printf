@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:22:45 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/10/10 15:42:01 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:17:55 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ static	void	check_hexa(const char s, int *count, va_list value)
 	if (s == 'p')
 	{
 		*count += ft_putstr("0x");
-		*count += putnbr_unsig(va_arg(value, unsigned long long));
+		*count += putnbr(va_arg(value, long long), "0123456789abcdef");
 	}
 	else if (s == 'x' || s == 'X')
 	{
 		if (s == 'x')
-			*count += nbr_int(va_arg(value, unsigned int), "0123456789abcdef");
+			*count += putnbr(va_arg(value, unsigned int), "0123456789abcdef");
 		else
-			*count += nbr_int(va_arg(value, unsigned int), "0123456789ABCDEF");
+			*count += putnbr(va_arg(value, unsigned int), "0123456789ABCDEF");
 	}
 }
 
 static void	check(const char s, int *count, va_list value)
 {
 	if (s == 'u')
-		*count += nbr_int(va_arg(value, unsigned int), "0123456789");
+		*count += putnbr(va_arg(value, unsigned int), "0123456789");
 	else if (s == 'c')
 		*count += print_char(va_arg(value, int));
 	else if (s == 'i' || s == 'd')
